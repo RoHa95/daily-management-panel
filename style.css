@@ -182,3 +182,12 @@
 .notes-item-container::-webkit-scrollbar {
   display: none;
 }
+.note-title-input {
+  border: none;
+  border-bottom: #c85ef1 1px solid;
+  height: 40px;
+  width: 30%;
+  font-size: larger;
+  margin-bottom: 10px;
+  outline: none;
+}
