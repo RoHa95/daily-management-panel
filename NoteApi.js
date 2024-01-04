@@ -29,5 +29,10 @@ class NoteApi {
     console.log("done");
     localStorage.setItem("notes", JSON.stringify(allNotes));
   }
+  static deleteNote(id) {
+    const allNote = NoteApi.getAllNotes();
+    const filteredNote = allNote.filter((note) => note.id != id);
+    localStorage.setItem("notes", JSON.stringify(filteredNote));
+  }
 }
 export default NoteApi;
