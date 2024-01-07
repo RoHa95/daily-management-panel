@@ -88,12 +88,17 @@
 }
 .goals-contaner {
   width: 90%;
-  height: 300px;
+  height: 320px;
   background-color: #fff;
   margin: 20px 0;
   border-radius: 25px;
   margin-bottom: 5px;
   overflow: hidden;
+}
+.goals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .notes-container {
   width: 90%;
@@ -107,6 +112,7 @@
   width: 95%;
   height: 30px;
   margin: 5px;
+  margin-top: 0;
   border: none;
   border-bottom: 1px solid #e5c7f1;
   outline: none;
@@ -121,6 +127,15 @@
   display: flex;
   flex-direction: column;
   padding: 3px 10px;
+}
+.plus-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: #af15ec;
 }
 .goals-item {
   background-color: #e5c7f1;
@@ -205,4 +220,61 @@
 }
 .delete-note-btn {
   background-color: red;
+}
+.qoals-title {
+  color: #c066f5;
+  font-size: large;
+  font-weight: bolder;
+  padding: 0px 10px;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .app-content {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .app-content {
+    height: 100%;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .left-container {
+    width: 100vw;
+  }
+
+  .right-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+  }
+  .center-container {
+    width: 100%;
+  }
+  .calender {
+    width: 100vw;
+  }
+  .todolist-container {
+    width: 100vw;
+  }
+  .goals-pic-container {
+    width: 100vw;
+    margin-top: 0;
+    margin: 0;
+  }
+  .change-board-container {
+    width: 100%;
+  }
+  .goals-contaner {
+    width: 100vw;
+  }
+  .notes-container {
+    width: 100vw;
+  }
 }
