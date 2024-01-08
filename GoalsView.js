@@ -1,8 +1,8 @@
 import GoalsApi from "./GoalsApi.js";
 const selectGoals = document.querySelector(".select-goals");
 const addNewGoalBtn = document.querySelector(".plus-container");
-
 const changeBoard = document.querySelector(".change-board-container");
+
 class GoalsView {
   constructor() {
     let value = "monthly";
@@ -167,12 +167,12 @@ class GoalsView {
           GoalsApi.deleteAnnualGoal(id);
           console.log(id);
           console.log("ok ann");
-          this.createGoalsList();
+          this.createGoalsList("annual");
         } else if (value === "monthly") {
           GoalsApi.deleteMonthlyGoal(id);
           console.log("ok month");
           console.log(id);
-          this.createGoalsList();
+          this.createGoalsList("monthly");
         }
       });
     });
