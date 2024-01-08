@@ -173,6 +173,10 @@
 .note-item:hover {
   background-color: #c85ef1;
 }
+
+.change-board-container {
+  transition: all ease-in-out;
+}
 .change-board-container h3 {
   font-size: xx-large;
   color: #c85ef1;
@@ -185,6 +189,43 @@
   border: none;
   font-size: medium;
   outline: none;
+}
+.toast-view {
+  background-color: rgba(139, 137, 137, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goals-input-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.goals-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goals-input {
+  height: 40px;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 50%;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+.goals-priority-select {
+  border-radius: 10px;
+  height: 40px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border: none;
+  outline: none;
+  background-color: #c85ef1;
 }
 .add-new-note {
   background-color: #c85ef1;

@@ -3,7 +3,7 @@ export default class GoalsApi {
   static getAnnualGoals() {
     const allGoals = JSON.parse(localStorage.getItem("annualgoals")) || [];
     const sortedGoals = allGoals.sort((a, b) => {
-      return new Date(a.createAt) > new Date(b.createAt) ? -1 : 1;
+      return a.priority > b.priority ? 1 : -1;
     });
     return sortedGoals;
   }
@@ -24,7 +24,7 @@ export default class GoalsApi {
   static getMonthlyGoals() {
     const allGoals = JSON.parse(localStorage.getItem("monthlygoals")) || [];
     const sortedGoals = allGoals.sort((a, b) => {
-      return new Date(a.createAt) > new Date(b.createAt) ? -1 : 1;
+      return a.priority > b.priority ? 1 : -1;
     });
     return sortedGoals;
   }

@@ -10,6 +10,7 @@ class NoteView {
   }
   addNewNote(e) {
     e.preventDefault();
+    changeBoard.classList.remove("toast-view");
     console.log("add new note");
     changeBoard.innerHTML = `<h3>note</h3>
     <input class="note-title-input" type="text" placeholder="Title..." />
@@ -75,6 +76,7 @@ class NoteView {
     });
   }
   editeNote(e) {
+    changeBoard.classList.remove("toast-view");
     const noteId = e;
     const allNotes = NoteApi.getAllNotes();
     const note = allNotes.find((note) => note.id == e);
