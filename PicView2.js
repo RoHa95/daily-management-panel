@@ -1,9 +1,10 @@
+import PicApi from "./PicApi.js";
 const picInput = document.querySelector("#file-input");
 const imageContainer = document.querySelector(".images-container");
 
 class PicView {
   constructor() {
-    let allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+    const allImage = PicApi.getAllPic();
     if (allImage.length < 1) {
       imageContainer.innerHTML = `<p class="image-container-title">Please upload pictures of your dreams here to motivate you.</p>`;
     }
@@ -16,10 +17,10 @@ class PicView {
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         localStorage.setItem("image", reader.result);
-        allImage.push(reader.result);
-        // PicApi.savePic(reader.result);
-        localStorage.setItem("pic2", JSON.stringify(allImage));
-        allImage = this.createPicList(allImage);
+        // allImage.push(reader.result);
+        PicApi.savePic(reader.result);
+        // localStorage.setItem("pic2", JSON.stringify(allImage));
+        this.createPicList();
         // allImage = JSON.parse(localStorage.getItem("pic2")) || [];
       });
       if (url) {
@@ -31,10 +32,11 @@ class PicView {
 
     // this.createPicList();
   }
-  createPicList(allImage) {
+  createPicList() {
     let result = ``;
     const imageContainer = document.querySelector(".images-container");
     // const allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+    const allImage = PicApi.getAllPic();
     console.log(allImage);
     if (!allImage) {
       imageContainer.innerHTML = `<p class="image-container-title">Please upload pictures of your dreams here to motivate you.</p>`;
@@ -55,19 +57,21 @@ class PicView {
           console.log(e.target.dataset.delId);
           const id = e.target.dataset.delId;
           // const allImage = JSON.parse(localStorage.getItem("pic2"));
-          const dellImage = allImage.filter((p, index) => {
-            return index != id;
-          });
-          localStorage.setItem("pic2", JSON.stringify(dellImage));
-          allImage = JSON.parse(localStorage.getItem("pic2")) || [];
-          this.createPicList(allImage);
+          const allImage = PicApi.getAllPic();
+          //   const dellImage = allImage.filter((p, index) => {
+          //     return index != id;
+          //   });
+          //   localStorage.setItem("pic2", JSON.stringify(dellImage));
+          PicApi.deleteImage(id);
+          //   const allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+          this.createPicList();
           if (allImage.length < 1) {
             imageContainer.innerHTML = `<p class="image-container-title">Please upload pictures of your dreams here to motivate you.</p>`;
           }
         });
       });
-      allImage = JSON.parse(localStorage.getItem("pic2")) || [];
-      return allImage;
+      //   allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+      //   return allImage;
     }
   }
 }
