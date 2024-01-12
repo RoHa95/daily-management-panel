@@ -17,19 +17,15 @@ class PicView {
       reader.addEventListener("load", () => {
         localStorage.setItem("image", reader.result);
         allImage.push(reader.result);
-        // PicApi.savePic(reader.result);
         localStorage.setItem("pic2", JSON.stringify(allImage));
-        allImage = this.createPicList(allImage);
-        // allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+        this.createPicList(allImage);
+        allImage = JSON.parse(localStorage.getItem("pic2")) || [];
       });
       if (url) {
         reader.readAsDataURL(url);
       }
       console.log(allImage);
-      // this.createPicList();
     });
-
-    // this.createPicList();
   }
   createPicList(allImage) {
     let result = ``;
@@ -66,8 +62,6 @@ class PicView {
           }
         });
       });
-      allImage = JSON.parse(localStorage.getItem("pic2")) || [];
-      return allImage;
     }
   }
 }
