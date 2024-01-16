@@ -3,84 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
+    <title>Daily Management</title>
     <link href="/css/mobiscroll.javascript.min.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
     />
     <script src="/mobiscroll.javascript.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
-    <title>Daily Management</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div class="app-content">
-      <div class="left-container">
+      <div class="calendar">
         <div class="calendar-container">
           <div class="calender" id="demo-init-inline"></div>
         </div>
+      </div>
+      <div class="todolist">
         <div class="todolist-container">
-          <div class="todolist-item-container">
-            <!-- <div class="todolist-item">
-              <p>to do list 1</p>
-              <i class="far fa-check-square"></i>
-            </div>
-            <div class="todolist-item">
-              <p>to do list 1</p>
-              <i class="far fa-check-square"></i>
-            </div>
-            <div class="todolist-item">
-              <p>to do list 1</p>
-              <i class="far fa-check-square"></i>
-            </div>
-            <div class="todolist-item">
-              <p>to do list 1</p>
-              <i class="far fa-check-square"></i>
-            </div>
-            <div class="todolist-item">
-              <p>to do list 1</p>
-              <i class="far fa-check-square"></i>
-            </div> -->
-          </div>
+          <div class="todolist-item-container"></div>
           <button class="add-new-todolist">ADD NEW TODOLIST</button>
         </div>
       </div>
-      <div class="center-container">
+      <div class="pic">
         <div class="goals-pic-container">
           <label class="label-input" for="file-input"
             ><i class="far fa-trash-alt"></i
           ></label>
           <input type="file" accept="image/*" id="file-input" />
-          <div class="images-container">
-            <!-- <div class="image-delete-container">
-              <image src="/a1.jpg" id="image-qoal"></image>
-              <span class="delete-btn"><i class="far fa-trash-alt"></i> </span>
-            </div>
-            <div class="image-delete-container">
-              <image src="/a1.jpg" id="image-qoal"></image>
-              <span class="delete-btn"><i class="far fa-trash-alt"></i> </span>
-            </div>
-            <div class="image-delete-container">
-              <image src="/a1.jpg" id="image-qoal"></image>
-              <span class="delete-btn"><i class="far fa-trash-alt"></i> </span>
-            </div> -->
-          </div>
-        </div>
-        <div class="change-board-container">
-          <!-- <h3>note</h3>
-          <input class="note-title-input" type="text" placeholder="Title..." />
-          <textarea placeholder="New Note..."></textarea> -->
+          <div class="images-container"></div>
         </div>
       </div>
-      <div class="right-container">
+      <div class="change-board">
+        <div class="change-board-container"></div>
+      </div>
+      <div class="goal">
         <div class="goals-contaner">
           <span class="qoals-title">your's goals</span>
           <div class="goals-header">
@@ -90,57 +47,16 @@
             </select>
             <span class="plus-container"><i class="far fa-trash-alt"></i></span>
           </div>
-
-          <div class="goals-text-container">
-            <!-- <span class="goals-item">give best score</span>
-            <span class="goals-item">give best score</span>
-            <span class="goals-item">give best score</span> -->
-          </div>
+          <div class="goals-text-container"></div>
         </div>
+      </div>
+      <div class="note">
         <div class="notes-container">
-          <div class="notes-item-container">
-            <!-- <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div>
-            <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div>
-            <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div>
-            <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div>
-            <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div>
-            <div class="note-item">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil,
-                inventore?
-              </p>
-            </div> -->
-          </div>
+          <div class="notes-item-container"></div>
           <button class="add-new-note">ADD NEW NOTE</button>
         </div>
       </div>
     </div>
-
-    <script src="/app.js" type="module"></script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>
