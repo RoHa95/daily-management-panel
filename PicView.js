@@ -2,13 +2,16 @@ const picInput = document.querySelector("#file-input");
 const imageContainer = document.querySelector(".images-container");
 
 class PicView {
-  constructor() {
-    let allImage = JSON.parse(localStorage.getItem("pic2")) || [];
-    if (allImage.length < 1) {
+  allImage;
+  constructor(allImage) {
+    this.allImage = allImage;
+    this.createPicList(this.allImage);
+    console.log(allImage);
+    if (this.allImage.length < 1) {
       imageContainer.innerHTML = `<p class="image-container-title">Please upload pictures of your dreams here to motivate you.</p>`;
     }
     picInput.addEventListener("change", (e) => {
-      if (allImage.length > 3) {
+      if (this.allImage.length > 3) {
         return;
       }
       console.log(typeof e.target.files[0]);
@@ -16,15 +19,15 @@ class PicView {
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         localStorage.setItem("image", reader.result);
-        allImage.push(reader.result);
-        localStorage.setItem("pic2", JSON.stringify(allImage));
-        this.createPicList(allImage);
-        allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+        this.allImage.push(reader.result);
+        localStorage.setItem("pic2", JSON.stringify(this.allImage));
+        this.createPicList(this.allImage);
+        this.allImage = JSON.parse(localStorage.getItem("pic2")) || [];
       });
       if (url) {
         reader.readAsDataURL(url);
       }
-      console.log(allImage);
+      console.log(this.allImage);
     });
   }
   createPicList(allImage) {
@@ -55,9 +58,9 @@ class PicView {
             return index != id;
           });
           localStorage.setItem("pic2", JSON.stringify(dellImage));
-          allImage = JSON.parse(localStorage.getItem("pic2")) || [];
-          this.createPicList(allImage);
-          if (allImage.length < 1) {
+          this.allImage = JSON.parse(localStorage.getItem("pic2")) || [];
+          this.createPicList(this.allImage);
+          if (this.allImage.length < 1) {
             imageContainer.innerHTML = `<p class="image-container-title">Please upload pictures of your dreams here to motivate you.</p>`;
           }
         });
@@ -65,4 +68,4 @@ class PicView {
     }
   }
 }
-export default new PicView();
+export default PicView;

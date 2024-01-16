@@ -15,16 +15,11 @@ mobiscroll.datepicker("#demo-init-inline", {
   display: "inline",
 });
 //
-const newStyle = {
-  color: "red",
-};
 const newItem = [
   { concept: goal, btn: addNewGoal },
   { concept: todolist, btn: addNewTodolist },
   { concept: note, btn: note },
 ];
-const items = [goal, todolist, note];
-Object.assign(todolist.style, newStyle);
 newItem.forEach((item) =>
   item.btn.addEventListener("click", (e) => {
     const eleStyle = window.getComputedStyle(item.concept);
@@ -40,10 +35,13 @@ newItem.forEach((item) =>
 );
 // updating DOM
 document.addEventListener("DOMContentLoaded", (e) => {
+  const allImage = JSON.parse(localStorage.getItem("pic2")) || [];
   console.log(NoteView);
   console.log(GoalsView);
-  console.log(PicView);
+  console.log(allImage);
+  let pp = new PicView(allImage);
+  console.log(pp);
   console.log(TodoListView);
-  PicView.createPicList();
+  // PicView.createPicList(allImage);
   TodoListView.creatTodoList();
 });
