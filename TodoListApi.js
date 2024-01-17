@@ -27,7 +27,7 @@ export default class TodoListApi {
   static deleteTodoList(id) {
     const allTodoList = TodoListApi.getAllTodoList();
     const filteredTodoList = allTodoList.filter((todo) => {
-      return todo.id !== id;
+      return todo.id != id;
     });
     localStorage.setItem("todolist", JSON.stringify(filteredTodoList));
   }

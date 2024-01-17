@@ -36,24 +36,30 @@ class NoteView {
   createNoteList() {
     const allNotes = NoteApi.getAllNotes();
     let result = "";
-    allNotes.forEach((note) => {
-      result += `<div class="note-item" data-note-id = ${note.id}>
-      <h3>${note.title}</h3>
-      <p class="note-description-view">
-        ${note.description.substring(0, 60)}
-      </p>
-      <div class="trash-note-container">
-      <span class="note-date">${new Date(note.createAt).toLocaleDateString(
-        "fa-IR"
-      )}
-      </span>
-      <div >
-      <i data-name-id=${
-        note.id
-      } class="far fa-trash-alt delete-note-btn"></i></div>
-      </div>
-    </div>`;
-    });
+    console.log(allNotes);
+    if (allNotes.length == 0) {
+      result = `<span class="note-placeholder-container"><p class="note-placeholder">start add new note!</p></span>`;
+      console.log("hihihi");
+    } else {
+      allNotes.forEach((note) => {
+        result += `<div class="note-item" data-note-id = ${note.id}>
+        <h3>${note.title}</h3>
+        <p class="note-description-view">
+          ${note.description.substring(0, 60)}
+        </p>
+        <div class="trash-note-container">
+        <span class="note-date">${new Date(note.createAt).toLocaleDateString(
+          "fa-IR"
+        )}
+        </span>
+        <div >
+        <i data-name-id=${
+          note.id
+        } class="far fa-trash-alt delete-note-btn"></i></div>
+        </div>
+      </div>`;
+      });
+    }
     noteItemContainer.innerHTML = result;
 
     const deleteNoteBtns = document.querySelectorAll(".delete-note-btn");

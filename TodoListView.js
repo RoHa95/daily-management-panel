@@ -30,14 +30,25 @@ class TodoListView {
   creatTodoList() {
     const allTodoList = TodoListApi.getAllTodoList();
     let result = ``;
+    if (allTodoList.length == 0) {
+      result = `<span class="note-placeholder-container"><p class="note-placeholder">start add new todo!</p></span>`;
+    }
     allTodoList.forEach((todo) => {
       result += ` <div class="todolist-item">
+      <span><i data-delete-id=${
+        todo.id
+      } id="delete-btn" class="far fa-trash-alt ${
+        todo.isCompleted ? "done1" : ""
+      }"></i></span>
+      <div class="todolist-item-icons">
       <p class=${todo.isCompleted ? "done" : ""} id="todo-title">${
         todo.title
       }</p>
       <i data-check-id=${todo.id} id="check-btn" class="far fa-check-square ${
         todo.isCompleted ? "done1" : ""
       }"></i>
+      </div>
+      
     </div>
         `;
     });
@@ -52,6 +63,19 @@ class TodoListView {
         console.log(selectedTodolist);
         selectedTodolist.isCompleted = !selectedTodolist.isCompleted;
         TodoListApi.updatedTodoList(selectedTodolist);
+        this.creatTodoList();
+      });
+    });
+    const deleteBtn = document.querySelectorAll("#delete-btn");
+    deleteBtn.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        console.log(e.target);
+        const id = e.target.dataset.deleteId;
+        console.log(id);
+        const allTodoList = TodoListApi.getAllTodoList();
+        const selectedTodolist = allTodoList.find((todo) => todo.id == id);
+        console.log(selectedTodolist);
+        TodoListApi.deleteTodoList(id);
         this.creatTodoList();
       });
     });
