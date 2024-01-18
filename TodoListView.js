@@ -12,7 +12,7 @@ class TodoListView {
       console.log("hihi");
       changeBoard.classList.add("toast-view");
       changeBoard.innerHTML = `<div class="todo-input-container">
-        <input maxlength="50" class="todo-input" type="text" />
+        <input placeholder="please write something..." maxlength="50" class="todo-input" type="text" />
       </div>`;
       const todoInput = document.querySelector(".todo-input");
       todoInput.addEventListener("blur", (e) => {

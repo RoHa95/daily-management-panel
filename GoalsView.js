@@ -78,7 +78,7 @@ class GoalsView {
       // }
       changeBoard.classList.add("toast-view");
       changeBoard.innerHTML = `<div class="goals-input-container">
-      <input class="goals-input" type="text" />
+      <input placeholder="please write something..." class="goals-input" type="text" />
       <select class="goals-priority-select">
         <option value="A">priority A</option>
         <option value="B">priority B</option>
