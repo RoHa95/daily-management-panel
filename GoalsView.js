@@ -136,25 +136,33 @@ class GoalsView {
     if (typeOfGoals === "monthly") {
       value = "monthly";
       const allGoals = GoalsApi.getMonthlyGoals();
-      allGoals.forEach((goal) => {
-        result += ` <div class="goals-item goals-item-container">
-        <span>${goal.title}</span>
-        <span  class="plus-container"
-          ><i id="goal-delete-btns" data-delete-id=${goal.id}  class="far fa-trash-alt"></i
-        ></span>
-      </div>`;
-      });
+      if (allGoals.length == 0) {
+        result = `<span class="note-placeholder-container"><p class="note-placeholder">start add new goal!</p></span>`;
+      } else {
+        allGoals.forEach((goal) => {
+          result += ` <div class="goals-item goals-item-container">
+          <span>${goal.title}</span>
+          <span  class="plus-container"
+            ><i id="goal-delete-btns" data-delete-id=${goal.id}  class="far fa-trash-alt"></i
+          ></span>
+        </div>`;
+        });
+      }
     } else if (typeOfGoals === "annual") {
       value = "annual";
       const allGoals = GoalsApi.getAnnualGoals();
-      allGoals.forEach((goal) => {
-        result += ` <div class="goals-item goals-item-container">
-        <span>${goal.title}</span>
-        <span   class="plus-container"
-          ><i id="goal-delete-btns" data-delete-id=${goal.id} class="far fa-trash-alt"></i
-        ></span>
-      </div>`;
-      });
+      if (allGoals.length == 0) {
+        result = `<span class="note-placeholder-container"><p class="note-placeholder">start add new goal!</p></span>`;
+      } else {
+        allGoals.forEach((goal) => {
+          result += ` <div class="goals-item goals-item-container">
+          <span>${goal.title}</span>
+          <span   class="plus-container"
+            ><i id="goal-delete-btns" data-delete-id=${goal.id} class="far fa-trash-alt"></i
+          ></span>
+        </div>`;
+        });
+      }
     }
     const goalContainer = document.querySelector(".goals-text-container");
     goalContainer.innerHTML = result;

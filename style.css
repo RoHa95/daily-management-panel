@@ -427,7 +427,9 @@
     width: 100%;
     height: fit-content;
   }
-
+  body {
+    background-color: #e5c7f1;
+  }
   .app-content {
     display: flex;
     flex-direction: column;
